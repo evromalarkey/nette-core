@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "main": "gulpfile.js",
+  "scripts": {
+    "postinstall": "npm run composer:install",
+    "composer:install": "docker run --rm --interactive --tty --volume ${PWD}:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer install",
+    "composer:update": "docker run --rm --interactive --tty --volume ${PWD}:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer update",
+    "nette:serve": "docker compose up"
+  },
+  "devDependencies": {
+    "@newlogic-digital/core": "~0.5.27",
+    "postcss-mixins": "^7.0.3"
+  }
+}
